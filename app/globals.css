@@ -1,7 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
 @plugin "daisyui" {
-  themes: caramellatte;
+  themes: garden;
+  --color-base-100: oklch(89.4% 0.057 293.283);
+  --color-base-content: oklch(89.4% 0.057 293.283);
+  --color-primary: oklch(89.4% 0.057 293.283);
+  --color-primary-content: oklch(89.4% 0.057 293.283);
+  --color-secondary: oklch(89.4% 0.057 293.283);
+  --color-secondary-content: oklch(89.4% 0.057 293.283);
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -127,4 +134,18 @@
 body {
   color: rgb(var(--foreground-rgb));
   padding: 1rem;
+}
+
+/* Custom scroll animation for sponsors */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
 }

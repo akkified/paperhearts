@@ -5,9 +5,9 @@ const LoginForm = () => {
   return (
     <form action={doSocialLogin}>
         <button 
-            className='bg-pink-400 text-white p-1 rounded-md m-1 text-lg'
+            className='btn btn-dash pb-0.5 pl-1 pr-1'
             type="submit" name='action' value="google">
-            Sign In With Google
+            Sign In
         </button>
     </form>
   )
