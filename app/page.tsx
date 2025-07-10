@@ -1,7 +1,12 @@
 import { Target, ArrowRight, Info, Heart, DollarSign, Gift } from "lucide-react"
 import Link from "next/link"
+import { signIn } from "next-auth/react"
 
 export default function Home() {
+  const handleDonateClick = () => {
+      signIn("google", { callbackUrl: "/donate" })
+    }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -25,7 +30,7 @@ export default function Home() {
                 Our Story
                 <Info className="w-4 h-4" />
               </Link>
-              <button className="border border-white/50 text-gray-800 hover:bg-white/20 px-6 py-3 rounded-lg flex items-center gap-2 justify-center bg-transparent transition-colors">
+              <button onClick={handleDonateClick} className="border border-white/50 text-gray-800 hover:bg-white/20 px-6 py-3 rounded-lg flex items-center gap-2 justify-center bg-transparent transition-colors">
                 Support Us
                 <ArrowRight className="w-4 h-4" />
               </button>
