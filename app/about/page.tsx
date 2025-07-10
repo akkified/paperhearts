@@ -1,14 +1,20 @@
+"use client"
+
 import { Heart, Users, Calendar } from "lucide-react"
+import { signIn } from "next-auth/react"
 
 export default function About() {
+  const handleDonateClick = () => {
+    signIn("google", { callbackUrl: "/donate" })
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="py-24">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <div className="mb-8">
-            </div>
+            <div className="mb-8"></div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-8">
               About <span className="text-white">Our Mission</span>
             </h1>
@@ -46,7 +52,6 @@ export default function About() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What do we do?</h2>
           </div>
-
           <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             <div className="text-center">
               <div className="mb-6">
@@ -58,7 +63,6 @@ export default function About() {
                 purpose. We want to show them that they are not forgotten, and that we do care about them.
               </p>
             </div>
-
             <div className="text-center">
               <div className="mb-6">
                 <Users className="w-12 h-12 text-white mx-auto" />
@@ -69,7 +73,6 @@ export default function About() {
                 resources that we use to communicate with children to help them.
               </p>
             </div>
-
             <div className="text-center">
               <div className="mb-6">
                 <Calendar className="w-12 h-12 text-white mx-auto" />
@@ -90,7 +93,6 @@ export default function About() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
           </div>
-
           <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
             <div className="text-center">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Pure Kindness</h3>
@@ -98,14 +100,12 @@ export default function About() {
                 We believe in authentic, no-strings-attached kindness that comes straight from the heart.
               </p>
             </div>
-
             <div className="text-center">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Real Connections</h3>
               <p className="text-gray-800 leading-relaxed">
                 Build meaningful relationships with people who genuinely care.
               </p>
             </div>
-
             <div className="text-center">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Daily Joy</h3>
               <p className="text-gray-800 leading-relaxed">
@@ -120,13 +120,15 @@ export default function About() {
       <div className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="mb-8">
-            </div>
+            <div className="mb-8"></div>
             <h2 className="text-4xl font-bold text-white mb-6">Make A Difference Today</h2>
             <p className="text-gray-800 text-lg mb-8 leading-relaxed">
               Your donation helps us continue spreading love and kindness worldwide.
             </p>
-            <button className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full font-semibold flex items-center gap-2 mx-auto transition-colors shadow-lg">
+            <button
+              onClick={handleDonateClick}
+              className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full font-semibold flex items-center gap-2 mx-auto transition-colors shadow-lg"
+            >
               <Heart className="w-5 h-5 fill-current" />
               Donate Now
             </button>
