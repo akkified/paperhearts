@@ -31,10 +31,10 @@ export default function About() {
               because we saw a world that felt scary and uncertain, especially after hearing news about WW3. We realized
               the people who would be most scared and lonely are the elderly, kids in hospitals, and children in foster
               care. So, we decided to do something about it. We created this arts and crafts nonprofit to bring people
-              together and remind them they're part of a community that cares. We set up craft stations at shelters,
+              together and remind them they are part of a community that cares. We set up craft stations at shelters,
               hospitals, and foster homes because art has this amazing power to connect people, spark joy, and heal
               loneliness. Our mission is simple but powerful: to create a space where everyone feels seen, supported,
-              and united, because together, we're stronger.
+              and united, because together, we are stronger.
             </p>
           </div>
         </div>
