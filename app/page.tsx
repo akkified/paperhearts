@@ -1,3 +1,4 @@
+"use client";
 import { Target, ArrowRight, Info, Heart, DollarSign, Gift } from "lucide-react"
 import Link from "next/link"
 import { signIn } from "next-auth/react"

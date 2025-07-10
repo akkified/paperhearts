@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Heart, Users, Calendar } from "lucide-react"
 import { signIn } from "next-auth/react"
