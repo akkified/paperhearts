@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BsEnvelopePaperHeartFill } from "react-icons/bs"
 import classnames from "classnames"
 import LoginForm from "@/components/LoginForm"
 import Logout from "@/components/Logout"
@@ -46,7 +45,13 @@ const NavBar = () => {
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
         <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm">
-          <BsEnvelopePaperHeartFill className="w-5 h-5 text-red-500" />
+          <Image 
+            src="/logo.png" 
+            alt="PaperHearts Logo" 
+            width={100} 
+            height={100} 
+            className="w-8 h-8 object-cover rounded-sm" 
+          />
         </div>
         <span className="text-gray-900 font-semibold text-lg">PaperHearts</span>
       </Link>
