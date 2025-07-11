@@ -142,13 +142,13 @@ export default function Home() {
       </div>
 
       {/* Scrolling Sponsors Section */}
-      <div className="py-16 overflow-hidden">
+      {/*<div className="py-16 overflow-hidden">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Proud Sponsors</h2>
         </div>
         <div className="relative">
           <div className="flex animate-scroll">
-            {/* First set of sponsors */}
+
             <div className="flex items-center space-x-12 min-w-max pr-12">
               <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-lg">LO</span>
@@ -169,7 +169,7 @@ export default function Home() {
                 <span className="text-white font-bold text-lg">VOLO</span>
               </div>
             </div>
-            {/* Second set */}
+
             <div className="flex items-center space-x-12 min-w-max pr-12">
               <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-lg">LO</span>
@@ -190,7 +190,7 @@ export default function Home() {
                 <span className="text-white font-bold text-lg">VOLO</span>
               </div>
             </div>
-            {/* Third set */}
+
             <div className="flex items-center space-x-12 min-w-max pr-12">
               <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-lg">LO</span>
@@ -211,7 +211,7 @@ export default function Home() {
                 <span className="text-white font-bold text-lg">VOLO</span>
               </div>
             </div>
-            {/* Fourth set */}
+
             <div className="flex items-center space-x-12 min-w-max pr-12">
               <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-bold text-lg">LO</span>
@@ -235,6 +235,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      */}
     </div>
   )
 }
