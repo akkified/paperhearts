@@ -119,7 +119,7 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"></div>
+              <div className="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center mx-auto mb-4"></div>
               <h3 className="text-gray-900 font-semibold mb-2">Classic Heart</h3>
               <p className="text-gray-700 text-sm">Handcrafted with recycled paper, perfect for any occasion.</p>
             </div>

@@ -17,7 +17,9 @@ const DonatePage = async () => {
         </div>
 
         {/* Givebutter integration will go here */}
-        <div className="gfm-embed" data-url="https://www.gofundme.com/f/bring-smiles-to-foster-kids-and-the-elderly/widget/large?sharesheet=undefined&attribution_id=sl:13990787-6cd3-4cbb-b231-43dca2bf87cd"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+        <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg p-8">
+          {/* Donation form/widget will be integrated here */}
+        </div>
       </div>
     </div>
   )

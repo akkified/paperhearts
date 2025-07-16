@@ -44,7 +44,7 @@ const NavBar = () => {
     <nav className="relative flex items-center justify-between px-6 py-4 backdrop-blur-sm border-b border-white/20">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm">
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-sm">
           <Image 
             src="/logo.png" 
             alt="PaperHearts Logo" 
