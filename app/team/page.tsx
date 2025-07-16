@@ -27,7 +27,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=192&width=192"
+                  src="/headshot/dhana.jpeg"
                   alt="Eeshasri Alpuri"
                   className="w-full h-full object-cover"
                 />
@@ -44,7 +44,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=192&width=192"
+                  src="/headshot/dhana.jpeg"
                   alt="Amira Vanjaria"
                   className="w-full h-full object-cover"
                 />
@@ -61,7 +61,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=192&width=192"
+                  src="/headshot/dhana.jpeg"
                   alt="Akhil Akella"
                   className="w-full h-full object-cover"
                 />
@@ -89,7 +89,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Sahasra Madhu"
                   className="w-full h-full object-cover"
                 />
@@ -105,7 +105,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Yagnasri Korada"
                   className="w-full h-full object-cover"
                 />
@@ -121,7 +121,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="SaiAnish Alpuri"
                   className="w-full h-full object-cover"
                 />
@@ -137,7 +137,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Akshaj Nandanavanam"
                   className="w-full h-full object-cover"
                 />
@@ -154,7 +154,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="DhanaSugani Sundar"
                   className="w-full h-full object-cover"
                 />
@@ -170,7 +170,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Vyom Mohan"
                   className="w-full h-full object-cover"
                 />
@@ -186,7 +186,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Thrina Maniyendra"
                   className="w-full h-full object-cover"
                 />
@@ -202,7 +202,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Rithikha Naresh"
                   className="w-full h-full object-cover"
                 />
@@ -219,7 +219,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Yashasri Korada"
                   className="w-full h-full object-cover"
                 />
@@ -235,7 +235,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Rukayat Fahad"
                   className="w-full h-full object-cover"
                 />
@@ -251,7 +251,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Anisha Pradhan"
                   className="w-full h-full object-cover"
                 />
@@ -267,7 +267,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/placeholder.svg?height=128&width=128"
+                  src="/headshot/dhana.jpeg"
                   alt="Tanvi Manche"
                   className="w-full h-full object-cover"
                 />

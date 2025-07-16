@@ -19,9 +19,7 @@ export default function About() {
               About <span className="text-white">Our Mission</span>
             </h1>
             <p className="text-gray-800 text-lg leading-relaxed max-w-3xl">
-              Paperheart is a student-led nonprofit dedicated to spreading comfort, hope and joy to children in foster
-              care, the elderly and children in hospitals by creating handmade gifts and meaningful connections through
-              arts and crafts. We create and deliver gifts to spread smiles, spark joy, and ignite a life of optimism.
+              Paperhearts is a student-led nonprofit dedicated to spreading comfort, joy and hope to children in foster care and the elderly by creating handmade gifts and meaningful connections through arts and crafts. We raise funds through community events and bring those funds to foster cares and senior citizen homes. There, we set up arts and crafts booths to do alongside them. Our mission is to fight loneliness, trauma and isolation by making people feel seen, connected and loved.
             </p>
           </div>
         </div>

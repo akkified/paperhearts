@@ -120,21 +120,21 @@ export default function Home() {
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-              <h3 className="text-gray-900 font-semibold mb-2">Classic Heart</h3>
+              <h3 className="text-gray-900 font-semibold mb-2">Origami</h3>
               <p className="text-gray-700 text-sm">Handcrafted with recycled paper, perfect for any occasion.</p>
             </div>
           </div>
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-              <h3 className="text-gray-900 font-semibold mb-2">Personalized Heart</h3>
+              <h3 className="text-gray-900 font-semibold mb-2">Rock painting</h3>
               <p className="text-gray-700 text-sm">Custom messages and designs for your special someone.</p>
             </div>
           </div>
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-              <h3 className="text-gray-900 font-semibold mb-2">Gift Set</h3>
+              <h3 className="text-gray-900 font-semibold mb-2">Fun Activities</h3>
               <p className="text-gray-700 text-sm">Collection of hearts perfect for gifting.</p>
             </div>
           </div>
