@@ -2,6 +2,7 @@
 
 import { Heart, Users, Calendar } from "lucide-react"
 import { signIn } from "next-auth/react"
+import CountUp from "@/components/CountUp/CountUp";
 
 export default function About() {
   const handleDonateClick = () => {
@@ -44,40 +45,81 @@ export default function About() {
         </div>
       </div>
 
-      {/* What do we do Section */}
+      {/* Elderly Love Section (Image Left, Text Right) */}
       <div className="py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What do we do?</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div className="text-center">
+          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+            {/* Image Placeholder - Replace with your actual image */}
+            <div className="w-full md:w-1/2">
+              <img src="/path/to/elderly-love-image.jpg" alt="Elderly Love" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+            </div>
+            <div className="w-full md:w-1/2 text-left">
               <div className="mb-6">
-                <Heart className="w-12 h-12 text-white mx-auto" />
+                <Heart className="w-12 h-12 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Elderly Love</h3>
-              <p className="text-gray-800 leading-relaxed">
-                61% of seniors in nursing homes suffer from loneliness due to the lack of visitors and the loss of
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Elderly Love</h2>
+              <p className="text-gray-800 leading-relaxed text-lg">
+                <span className="count-up-text text-gray-900 text-4xl font-bold inline"> {/* New span wrapper */}
+                  <CountUp
+                    from={0}
+                    to={61}
+                    separator=","
+                    direction="up"
+                    duration={0.5}
+                  />% {/* Percentage symbol moved inside the span */}
+                </span> of seniors in nursing homes suffer from loneliness due to the lack of visitors and the loss of
                 purpose. We want to show them that they are not forgotten, and that we do care about them.
               </p>
             </div>
-            <div className="text-center">
+          </div>
+        </div>
+      </div>
+
+      {/* Foster Child Welfare Section (Text Left, Image Right) */}
+      <div className="bg-white/40 backdrop-blur-sm py-24">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+            <div className="w-full md:w-1/2 text-right">
               <div className="mb-6">
-                <Users className="w-12 h-12 text-white mx-auto" />
+                <Users className="w-12 h-12 text-white ml-auto" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Foster Child Welfare</h3>
-              <p className="text-gray-800 leading-relaxed">
-                80% of foster children have mental issues resulting from neglect and trauma. Our donations help fund
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Foster Child Welfare</h2>
+              <p className="text-gray-800 leading-relaxed text-lg">
+                <span className="count-up-text text-gray-900 text-4xl font-bold inline"> {/* New span wrapper */}
+                  <CountUp
+                    from={0}
+                    to={80}
+                    separator=","
+                    direction="up"
+                    duration={0.5}
+                  />% {/* Percentage symbol moved inside the span */}
+                </span> of foster children have mental issues resulting from neglect and trauma. Our donations help fund
                 resources that we use to communicate with children to help them.
               </p>
             </div>
-            <div className="text-center">
+            {/* Image Placeholder - Replace with your actual image */}
+            <div className="w-full md:w-1/2">
+              <img src="/path/to/foster-child-image.jpg" alt="Foster Child Welfare" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Monthly Meetups Section (Image Left, Text Right) */}
+      <div className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+            {/* Image Placeholder - Replace with your actual image */}
+            <div className="w-full md:w-1/2">
+              <img src="/path/to/meetups-image.jpg" alt="Monthly Meetups" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+            </div>
+            <div className="w-full md:w-1/2 text-left">
               <div className="mb-6">
-                <Calendar className="w-12 h-12 text-white mx-auto" />
+                <Calendar className="w-12 h-12 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Monthly Meetups</h3>
-              <p className="text-gray-800 leading-relaxed">
-                Monthly, we will setup a stand in a public area trying to teach the general about these issues through
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Monthly Meetups</h2>
+              <p className="text-gray-800 leading-relaxed text-lg">
+                Monthly, we will set up a stand in a public area trying to teach the general about these issues through
                 fun activities and collaboration.
               </p>
             </div>
@@ -85,30 +127,26 @@ export default function About() {
         </div>
       </div>
 
-      {/* Why Choose Us Section */}
+      {/* Our Impact Section (Text Left, Image Right) */}
       <div className="bg-white/40 backdrop-blur-sm py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Pure Kindness</h3>
-              <p className="text-gray-800 leading-relaxed">
-                We believe in authentic, no-strings-attached kindness that comes straight from the heart.
+          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+            <div className="w-full md:w-1/2 text-right">
+              <div className="mb-6">
+                {/* You can choose a new icon here, or omit if not applicable */}
+                <Heart className="w-12 h-12 text-white ml-auto" />
+              </div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
+              <p className="text-gray-800 leading-relaxed text-lg">
+                Since our founding, Paperhearts has touched countless lives. We've hosted numerous craft events,
+                bringing smiles and fostering connections in senior care facilities and foster homes. Our community
+                outreach events has raised vital awareness and funds, enabling us to expand our reach and continue
+                our mission of fighting loneliness and promoting well-being through the power of art.
               </p>
             </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Real Connections</h3>
-              <p className="text-gray-800 leading-relaxed">
-                Build meaningful relationships with people who genuinely care.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Daily Joy</h3>
-              <p className="text-gray-800 leading-relaxed">
-                Experience the happiness that comes from giving and receiving love.
-              </p>
+            {/* Image Placeholder - Replace with your actual image */}
+            <div className="w-full md:w-1/2">
+              <img src="/path/to/our-impact-image.jpg" alt="Our Impact" className="rounded-lg shadow-lg w-full h-auto object-cover" />
             </div>
           </div>
         </div>
