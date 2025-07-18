@@ -2,6 +2,9 @@
 import { Target, ArrowRight, Info, Heart, DollarSign, Gift } from "lucide-react"
 import Link from "next/link"
 import { signIn } from "next-auth/react"
+import RotatingText from '@/components/TextAnimations/RotatingText/RotatingText'
+
+
 
 export default function Home() {
   const handleDonateClick = () => {
@@ -110,39 +113,56 @@ export default function Home() {
       {/* Benefits Section */}
       <div className="container mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <p className="text-purple-700 text-sm font-medium mb-2">Our goal is to support</p>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">EVERYONE!</h2>
+          <p className="text-purple-700 text-sm font-medium mb-2">We do fun things like</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+             <RotatingText
+                  texts={['Origami', 'Rock Painting', 'Mahendi', 'Drawing', 'Crafting', 'Making Bracelets', 'Finger Painting','Games','Seasonal Activities']}
+                  mainClassName="px-2 sm:px-2 md:px-3 bg-opacity-0 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+                  staggerFrom={"last"}
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  exit={{ y: "-120%" }}
+                  staggerDuration={0.025}
+                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                  rotationInterval={2000}
+                />
+          </h2>
           <p className="text-gray-800 max-w-2xl mx-auto">
-            We take donations and supply them to centers that need it across Georgia
+            We do this with all our friends in the community, and we love it!
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-400 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-              <h3 className="text-gray-900 font-semibold mb-2">Origami</h3>
-              <p className="text-gray-700 text-sm">Handcrafted with recycled paper, perfect for any occasion.</p>
+              <h3 className="text-gray-900 font-semibold mb-2">Testimony #1</h3>
+              <p className="text-gray-700 text-sm italic">
+                I love the activities you do for the elderly. It makes me feel good to see them happy.
+              </p>
             </div>
           </div>
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-              <h3 className="text-gray-900 font-semibold mb-2">Rock painting</h3>
-              <p className="text-gray-700 text-sm">Custom messages and designs for your special someone.</p>
+              <h3 className="text-gray-900 font-semibold mb-2">Testimony #2</h3>
+              <p className="text-gray-700 text-sm italic">
+                The activities you do are so fun and engaging. I love how you make everyone feel included.
+              </p>
             </div>
           </div>
           <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-lg">
             <div className="p-6 text-center">
               <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4"></div>
-              <h3 className="text-gray-900 font-semibold mb-2">Fun Activities</h3>
-              <p className="text-gray-700 text-sm">Collection of hearts perfect for gifting.</p>
+              <h3 className="text-gray-900 font-semibold mb-2">Testimony #3</h3>
+              <p className="text-gray-700 text-sm italic">The foster care activities are so much fun! I love how you make everyone feel like they're part of a big family.</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scrolling Sponsors Section */}
-      {/*<div className="py-16 overflow-hidden">
+
+      <div className="py-16 overflow-hidden">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Proud Sponsors</h2>
         </div>
@@ -235,7 +255,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      */}
+      
     </div>
   )
 }
