@@ -16,7 +16,6 @@ import {
   Transition,
   type VariantLabels,
   type Target,
-  type animationControls, // Corrected: Changed from AnimationControls to animationControls
   type TargetAndTransition,
 } from "framer-motion";
 
@@ -39,7 +38,7 @@ export interface RotatingTextProps
   texts: string[];
   transition?: Transition;
   initial?: boolean | Target | VariantLabels;
-  animate?: boolean | VariantLabels | animationControls | TargetAndTransition; // Corrected: Changed from AnimationControls to animationControls
+  animate?: boolean | VariantLabels | TargetAndTransition;
   exit?: Target | VariantLabels;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
