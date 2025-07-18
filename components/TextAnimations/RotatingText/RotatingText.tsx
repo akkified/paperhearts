@@ -1,5 +1,5 @@
 /*
-	Installed from https://reactbits.dev/ts/tailwind/
+  Installed from https://reactbits.dev/ts/tailwind/
 */
 
 import React, {
@@ -16,7 +16,7 @@ import {
   Transition,
   type VariantLabels,
   type Target,
-  type AnimationControls,
+  type animationControls, // Corrected: Changed from AnimationControls to animationControls
   type TargetAndTransition,
 } from "framer-motion";
 
@@ -39,7 +39,7 @@ export interface RotatingTextProps
   texts: string[];
   transition?: Transition;
   initial?: boolean | Target | VariantLabels;
-  animate?: boolean | VariantLabels | AnimationControls | TargetAndTransition;
+  animate?: boolean | VariantLabels | animationControls | TargetAndTransition; // Corrected: Changed from AnimationControls to animationControls
   exit?: Target | VariantLabels;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
