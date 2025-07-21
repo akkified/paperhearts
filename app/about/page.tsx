@@ -32,14 +32,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-8">Our Story</h2>
             <p className="text-gray-800 text-lg leading-relaxed">
-              Paperhearts was started by me, Eeshasri Alpuri, and my two friends Akhil Akella, and Amira Vanjaria,
-              because we saw a world that felt scary and uncertain, especially after hearing news about WW3. We realized
-              the people who would be most scared and lonely are the elderly, kids in hospitals, and children in foster
-              care. So, we decided to do something about it. We created this arts and crafts nonprofit to bring people
-              together and remind them they are part of a community that cares. We set up craft stations at shelters,
-              hospitals, and foster homes because art has this amazing power to connect people, spark joy, and heal
-              loneliness. Our mission is simple but powerful: to create a space where everyone feels seen, supported,
-              and united, because together, we are stronger.
+            The PaperHearts community recognized that many non-profits only focus on providing essential needs and basic support. However, when we saw an opportunity to bring joy to the elderly and foster care communities, we took our chance to achieve this. We started this nonprofit because all of us love arts and crafts. We realized that art is the thread that stitches hearts together — across generations, languages, and lifetimes. Art brings people together in a way words never did. When people create together, they connect, memory by memory. Our community realized that the world that we are living in felt chaotic, and we were all tired of waiting for someone else to fix it. So PaperHearts, a passionate group of teens, decided to do something about it, one small act at a time.
             </p>
           </div>
         </div>

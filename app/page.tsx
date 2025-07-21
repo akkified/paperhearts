@@ -116,7 +116,7 @@ export default function Home() {
           <p className="text-purple-700 text-sm font-medium mb-2">We do fun things like</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
              <RotatingText
-                  texts={['Origami', 'Rock Painting', 'Mahendi', 'Drawing', 'Crafting', 'Making Bracelets', 'Finger Painting','Games','Seasonal Activities']}
+                  texts={['Origami', 'Rock Painting', 'Mehendi', 'Drawing', 'Crafting', 'Making Bracelets', 'Finger Painting','Games','Seasonal Activities']}
                   mainClassName="px-2 sm:px-2 md:px-3 bg-opacity-0 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
                   staggerFrom={"last"}
                   initial={{ y: "100%" }}
