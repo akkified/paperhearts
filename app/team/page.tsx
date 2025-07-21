@@ -105,7 +105,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/yagnasri.jpeg"
+                  src="/headshot/yagna.jpeg"
                   alt="Yagnasri Korada"
                   className="w-full h-full object-cover"
                 />
@@ -170,22 +170,6 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/vyom.jpeg"
-                  alt="Vyom Mohan"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Vyom Mohan</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Community Outreach</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Community Outreach Officer is to connect with local organizations, shelters, and service
-                partners to expand our reach and bring comfort to those who need it most."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
                   src="/headshot/thrina.jpeg"
                   alt="Thrina Maniyendra"
                   className="w-full h-full object-cover"
@@ -219,7 +203,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/yashasri.jpeg"
+                  src="/headshot/yash.jpeg"
                   alt="Yashasri Korada"
                   className="w-full h-full object-cover"
                 />

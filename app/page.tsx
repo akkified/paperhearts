@@ -1,15 +1,29 @@
 "use client";
+import React from 'react'; // Import React
 import { Target, ArrowRight, Info, Heart, DollarSign, Gift } from "lucide-react"
 import Link from "next/link"
 import { signIn } from "next-auth/react"
-import RotatingText from '@/components/TextAnimations/RotatingText/RotatingText'
-
-
+import RotatingText from '@/components/TextAnimations/RotatingText/RotatingText' // Assuming this path is correct
+import ImageCarousel from '@/components/ImageCarousel'
 
 export default function Home() {
   const handleDonateClick = () => {
       signIn("google", { callbackUrl: "/donate" })
     }
+
+  // Define your array of image URLs for the carousel
+  const carouselImages = [
+    "https://placehold.co/600x400/A0BBE0/FFFFFF?text=Art+Piece+1",
+    "https://placehold.co/600x400/C0DDE0/FFFFFF?text=Art+Piece+2",
+    "https://placehold.co/600x400/E0F0F0/FFFFFF?text=Art+Piece+3",
+    "https://placehold.co/600x400/F0C0D0/FFFFFF?text=Art+Piece+4",
+    "https://placehold.co/600x400/B0E0E0/FFFFFF?text=Art+Piece+5",
+    "https://placehold.co/600x400/D0F0F0/FFFFFF?text=Art+Piece+6",
+    "https://placehold.co/600x400/F0A0B0/FFFFFF?text=Art+Piece+7",
+    "https://placehold.co/600x400/A0C0D0/FFFFFF?text=Art+Piece+8",
+    "https://placehold.co/600x400/C0E0F0/FFFFFF?text=Art+Piece+9",
+    "https://placehold.co/600x400/E0B0C0/FFFFFF?text=Art+Piece+10",
+  ];
 
   return (
     <div className="min-h-screen">
@@ -41,71 +55,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Updated Illustration Area - Donation to Elderly */}
+          {/* Image Carousel Section */}
           <div className="relative">
-            <div className="relative bg-gradient-to-br from-white/30 to-purple-500/20 rounded-2xl p-8 backdrop-blur-sm border border-white/20">
-              {/* Donation to elderly illustration */}
-              <div className="flex justify-center items-center h-64">
-                <div className="relative">
-                  {/* Elderly person sitting */}
-                  <div className="flex items-end justify-center space-x-8">
-                    {/* Elderly person */}
-                    <div className="relative">
-                      {/* Head with gray hair */}
-                      <div className="w-10 h-10 bg-pink-200 rounded-full mb-2 relative">
-                        <div className="absolute top-0 left-1 right-1 h-3 bg-gray-300 rounded-t-full"></div>
-                      </div>
-                      {/* Body */}
-                      <div className="w-14 h-20 bg-blue-400 rounded-lg relative">
-                        {/* Arms */}
-                        <div className="absolute -left-2 top-2 w-4 h-12 bg-pink-200 rounded-full"></div>
-                        <div className="absolute -right-2 top-2 w-4 h-12 bg-pink-200 rounded-full"></div>
-                      </div>
-                      {/* Walking cane */}
-                      <div className="absolute -right-6 top-8 w-1 h-16 bg-amber-600 rounded-full"></div>
-                      <div className="absolute -right-8 top-6 w-4 h-2 bg-amber-600 rounded-full"></div>
-                      {/* Chair */}
-                      <div className="absolute -bottom-4 -left-2 w-18 h-8 bg-amber-700 rounded"></div>
-                      <div className="absolute -bottom-12 -left-2 w-2 h-8 bg-amber-700"></div>
-                      <div className="absolute -bottom-12 right-0 w-2 h-8 bg-amber-700"></div>
-                    </div>
-
-                    {/* Donation hand with money */}
-                    <div className="relative">
-                      {/* Hand giving money */}
-                      <div className="w-8 h-12 bg-pink-300 rounded-lg transform -rotate-12"></div>
-                      {/* Money/bills */}
-                      <div className="absolute -top-2 -right-2 w-6 h-4 bg-green-400 rounded border-2 border-green-600"></div>
-                      <div className="absolute -top-1 -right-1 w-6 h-4 bg-green-500 rounded border-2 border-green-700"></div>
-                      {/* Dollar signs floating */}
-                      <div className="absolute -top-6 left-2 text-green-600 text-lg font-bold">$</div>
-                      <div className="absolute -top-4 -left-2 text-green-600 text-sm font-bold">$</div>
-                    </div>
-                  </div>
-
-                  {/* Heart between them showing care */}
-                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2">
-                    <div className="w-6 h-6 bg-red-400 rounded-full relative">
-                      <Heart className="w-4 h-4 text-white absolute top-1 left-1" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating donation-themed icons */}
-              <div className="absolute top-4 left-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                <DollarSign className="w-4 h-4 text-white" />
-              </div>
-              <div className="absolute top-8 right-8 w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                <Heart className="w-4 h-4 text-white" />
-              </div>
-              <div className="absolute bottom-8 left-8 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
-                <Gift className="w-4 h-4 text-white" />
-              </div>
-              <div className="absolute bottom-4 right-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                <Target className="w-4 h-4 text-white" />
-              </div>
-            </div>
+            {/* Pass the images array to the ImageCarousel component */}
+            <ImageCarousel images={carouselImages} />
           </div>
         </div>
       </div>
