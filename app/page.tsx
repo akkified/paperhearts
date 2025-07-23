@@ -37,7 +37,7 @@ export default function Home() {
                 Handmade Art <span className="text-white">For Every Heart</span>
               </h1>
               <p className="text-gray-800 text-lg leading-relaxed max-w-md">
-                Our mission is to bring people together, one handmade gift at a time.
+                PaperHeart's mission is to bring people together, one handmade gift at a time.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
