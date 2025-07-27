@@ -8,18 +8,27 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 interface Activity {
   date: string; // Date in YYYY-MM-DD format for easy comparison
   description: string;
-  youtubeId?: string; // Optional: YouTube video ID (e.g., 'dQw4w9WgXcQ' from youtube.com/watch?v=dQw4w9WgXcQ)
+  youtubeId?: string; // Optional: YouTube video ID
+  requiresRegistration?: boolean; // NEW: Flag if this activity needs registration
 }
 
-// --- Dummy Activity Data (now with YouTube IDs) ---
+// --- Dummy Activity Data (now with YouTube IDs and registration flag) ---
 // IMPORTANT: Replace the 'youtubeId' values with actual YouTube video IDs relevant to your activities.
-// You can find a video's ID in its URL: youtube.com/watch?v=<VIDEO_ID>
+// You can find a video's ID in its URL: https://www.youtube.com/watch?v=<VIDEO_ID>
 const activities: Activity[] = [
   {
     date: '2025-08-01',
     description: 'First Activity! Join us at Towne Club Windermere (3950 Towne Club Pkwy, Cumming, GA, 30041). We will be doing some arts and crafts to entertain the elderly.',
-    youtubeId: 'FzX101pM8v8' // Example: Mehendi design process
+    youtubeId: 'FzX101pM8v8', // Example: Mehendi design process - replace with relevant video
+    requiresRegistration: true, // This activity now requires registration!
   },
+  // Add more activities here as needed, and set requiresRegistration: true for those that need it
+  // {
+  //   date: '2025-08-15',
+  //   description: 'Another upcoming activity description.',
+  //   youtubeId: 'ANOTHER_VIDEO_ID',
+  //   requiresRegistration: true,
+  // },
 ];
 
 export default function VolunteerPage() {
@@ -30,6 +39,20 @@ export default function VolunteerPage() {
   // We now store the entire selected activity object, not just the description
   const [selectedActivityObject, setSelectedActivityObject] = useState<Activity | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  // NEW: Form state for registration
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    activityDate: '', // Hidden field to store selected activity date
+    activityDescription: '' // Hidden field to store selected activity description
+  });
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  // NEW: Your actual Formspree endpoint
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdkdgvan'; 
 
   // Use useMemo to re-calculate calendar days only when month/year changes
   const { daysInMonth, firstDayOfMonth, days } = useMemo(() => {
@@ -47,30 +70,40 @@ export default function VolunteerPage() {
   }, [currentMonth, currentYear]);
 
   // --- Navigation Handlers ---
-  const handlePrevMonth = () => {
+  const handleMonthChange = (direction: 'prev' | 'next') => {
     setSelectedDate(null); // Clear selection on month change
     setSelectedActivityObject(null); // Clear selected activity object
-    if (currentMonth === 1) {
-      setCurrentMonth(12);
-      setCurrentYear(prevYear => prevYear - 1);
-    } else {
-      setCurrentMonth(prevMonth => prevMonth - 1);
-    }
-  };
+    setFormStatus('idle'); // NEW: Reset form status on month change
+    setFormData({ // NEW: Reset form data on month change
+      name: '', email: '', phone: '', message: '', activityDate: '', activityDescription: ''
+    });
 
-  const handleNextMonth = () => {
-    setSelectedDate(null); // Clear selection on month change
-    setSelectedActivityObject(null); // Clear selected activity object
-    if (currentMonth === 12) {
-      setCurrentMonth(1);
-      setCurrentYear(prevYear => prevYear + 1);
-    } else {
-      setCurrentMonth(prevMonth => prevMonth + 1);
+    if (direction === 'prev') {
+      if (currentMonth === 1) {
+        setCurrentMonth(12);
+        setCurrentYear(prevYear => prevYear - 1);
+      } else {
+        setCurrentMonth(prevMonth => prevMonth - 1);
+      }
+    } else { // 'next'
+      if (currentMonth === 12) {
+        setCurrentMonth(1);
+        setCurrentYear(prevYear => prevYear + 1);
+      } else {
+        setCurrentMonth(prevMonth => prevMonth + 1);
+      }
     }
   };
 
   // --- Event Handler for Date Clicks ---
   const handleDayClick = (day: number | null) => {
+    setSelectedDate(null); // Clear previous selection
+    setSelectedActivityObject(null); // Clear previous activity object
+    setFormStatus('idle'); // NEW: Reset form status on new date selection
+    setFormData({ // NEW: Reset form data on new date selection
+      name: '', email: '', phone: '', message: '', activityDate: '', activityDescription: ''
+    });
+
     if (day) {
       // Format the date to match the activity data format (YYYY-MM-DD)
       const dateString = `${currentYear}-${String(currentMonth).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
@@ -79,6 +112,15 @@ export default function VolunteerPage() {
 
       setSelectedDate(dateString);
       setSelectedActivityObject(foundActivity || null); // Store the entire object or null
+
+      // NEW: Pre-fill form data with activity details if an activity is found
+      if (foundActivity) {
+        setFormData(prev => ({
+          ...prev,
+          activityDate: formatDateForDisplay(dateString),
+          activityDescription: foundActivity.description.substring(0, 100) + '...' // Use a truncated description for the hidden field
+        }));
+      }
     } else {
       // If an empty cell is clicked, clear the selection
       setSelectedDate(null);
@@ -94,6 +136,40 @@ export default function VolunteerPage() {
     const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
     return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   };
+
+  // NEW: Handle form input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // NEW: Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        // Optionally clear form data after successful submission
+        setFormData({ name: '', email: '', phone: '', message: '', activityDate: '', activityDescription: '' });
+      } else {
+        setFormStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setFormStatus('error');
+    }
+  };
+
 
   return (
     <div className="min-h-screen container mx-auto px-6 py-12">
@@ -112,7 +188,7 @@ export default function VolunteerPage() {
         <div className="flex justify-between items-center mb-6">
           {/* Previous Month Button */}
           <button
-            onClick={handlePrevMonth}
+            onClick={() => handleMonthChange('prev')} // Updated to use handleMonthChange
             className="p-2 rounded-full hover:bg-gray-200 transition-colors duration-200"
             aria-label="Previous Month"
           >
@@ -126,7 +202,7 @@ export default function VolunteerPage() {
 
           {/* Next Month Button */}
           <button
-            onClick={handleNextMonth}
+            onClick={() => handleMonthChange('next')} // Updated to use handleMonthChange
             className="p-2 rounded-full hover:bg-gray-200 transition-colors duration-200"
             aria-label="Next Month"
           >
@@ -203,12 +279,100 @@ export default function VolunteerPage() {
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
                 // Construct the YouTube embed URL
-                src={`https://www.youtube.com/embed/${selectedActivityObject.youtubeId}`}
+                src={`https://www.youtube.com/embed/${selectedActivityObject.youtubeId}`} // Corrected YouTube embed URL format
                 title={`YouTube video about ${selectedActivityObject.description.substring(0, 30)}...`} // Accessible title
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
+            </div>
+          )}
+
+          {/* NEW: Registration Form (Conditional) */}
+          {selectedActivityObject.requiresRegistration && (
+            <div className="mt-8 pt-8 border-t border-white/50 text-left">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Register for this Activity</h3>
+
+              {formStatus === 'success' && (
+                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">
+                  <strong className="font-bold">Success!</strong>
+                  <span className="block sm:inline ml-2">Your registration has been submitted. We'll be in touch!</span>
+                </div>
+              )}
+
+              {formStatus === 'error' && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+                  <strong className="font-bold">Error!</strong>
+                  <span className="block sm:inline ml-2">There was an issue with your submission. Please try again.</span>
+                </div>
+              )}
+
+              {formStatus !== 'success' && (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Hidden fields for activity details, pre-filled by handleDayClick */}
+                  <input type="hidden" name="activityDate" value={formData.activityDate} />
+                  <input type="hidden" name="activityDescription" value={formData.activityDescription} />
+
+                  <div>
+                    <label htmlFor="name" className="block text-gray-800 text-sm font-medium mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2 bg-white/70 border border-white/50 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-500"
+                      placeholder="Your Full Name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-800 text-sm font-medium mb-1">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2 bg-white/70 border border-white/50 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-500"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-gray-800 text-sm font-medium mb-1">Phone Number (Optional)</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-2 bg-white/70 border border-white/50 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-500"
+                      placeholder="e.g., +1 (123) 456-7890"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-gray-800 text-sm font-medium mb-1">Message / Questions (Optional)</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={4}
+                      className="w-full px-4 py-2 bg-white/70 border border-white/50 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 placeholder-gray-500"
+                      placeholder="Any questions or notes for us?"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={formStatus === 'submitting'}
+                    className="w-full px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {formStatus === 'submitting' ? 'Registering...' : 'Submit Registration'}
+                  </button>
+                </form>
+              )}
             </div>
           )}
         </div>
