@@ -4,45 +4,14 @@
 import React, { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// --- Data Structure for Activities ---
-interface Activity {
-  date: string; // Date in YYYY-MM-DD format for easy comparison
-  description: string;
-  youtubeId?: string; // Optional: YouTube video ID
-  requiresRegistration?: boolean; // Flag if this activity needs registration
-}
-
-// --- Dummy Activity Data (now with YouTube IDs and registration flag) ---
-// IMPORTANT: Replace the 'youtubeId' values with actual YouTube video IDs relevant to your activities.
-// You can find a video's ID in its URL: https://www.youtube.com/watch?v=<VIDEO_ID>
-const activities: Activity[] = [
-  {
-    date: '2025-08-01',
-    description: 'First Activity! Join us at Towne Club Windermere (3950 Towne Club Pkwy, Cumming, GA, 30041). We will be doing some arts and crafts to entertain the elderly.',
-    youtubeId: 'FzX101pM8v8', // Example: Mehendi design process - replace with relevant video
-    requiresRegistration: true, // This activity now requires registration!
-  },
-  {
-    date: '2025-07-27', // Example: An activity on the current date (today)
-    description: 'Current Day Activity: Crafting thank you cards for local essential workers.',
-    youtubeId: 'some_other_video_id',
-    requiresRegistration: true,
-  },
-  {
-    date: '2025-07-20', // Example: An activity in the past
-    description: 'Past Activity: Community mural painting event at the park. Registration is now closed for this past event.',
-    youtubeId: 'a_past_video_id',
-    requiresRegistration: true,
-  },
-  // Add more activities here as needed, and set requiresRegistration: true for those that need it
-];
+// --- Import Activities Data and Interface ---
+import { activities, Activity } from '../data/activities'; 
 
 export default function VolunteerPage() {
   const today = new Date();
-  // Set time to 00:00:00 for accurate date-only comparison
   today.setHours(0, 0, 0, 0); 
 
-  const [currentMonth, setCurrentMonth] = useState(today.getMonth() + 1); // Month (1-indexed)
+  const [currentMonth, setCurrentMonth] = useState(today.getMonth() + 1);
   const [currentYear, setCurrentYear] = useState(today.getFullYear());
 
   const [selectedActivityObject, setSelectedActivityObject] = useState<Activity | null>(null);
@@ -89,7 +58,7 @@ export default function VolunteerPage() {
       } else {
         setCurrentMonth(prevMonth => prevMonth - 1);
       }
-    } else { // 'next'
+    } else {
       if (currentMonth === 12) {
         setCurrentMonth(1);
         setCurrentYear(prevYear => prevYear + 1);
@@ -164,18 +133,15 @@ export default function VolunteerPage() {
     }
   };
 
-  // NEW: Function to check if the selected activity date is in the past
   const isSelectedActivityInPast = useMemo(() => {
     if (!selectedDate) return false;
     const activityDate = new Date(selectedDate);
-    // Compare only dates, not time
     return activityDate < today;
   }, [selectedDate, today]);
 
 
   return (
     <div className="min-h-screen container mx-auto px-6 py-12">
-      {/* Hero Section for Volunteer Page */}
       <div className="text-center mb-10">
         <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
           Volunteer With Us!
@@ -185,7 +151,6 @@ export default function VolunteerPage() {
         </p>
       </div>
 
-      {/* Calendar Section */}
       <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-xl p-8 max-w-3xl mx-auto mb-12">
         <div className="flex justify-between items-center mb-6">
           <button
@@ -256,7 +221,6 @@ export default function VolunteerPage() {
         </div>
       </div>
 
-      {/* Activity Details & Video Display */}
       {selectedActivityObject && (
         <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-xl p-6 max-w-3xl mx-auto text-center animate-fadeIn">
           <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -270,7 +234,7 @@ export default function VolunteerPage() {
             <div className="relative w-full aspect-video rounded-lg overflow-hidden mx-auto shadow-md mt-4">
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${selectedActivityObject.youtubeId}`}
+                src={`http://www.youtube.com/embed/${selectedActivityObject.youtubeId}`}
                 title={`YouTube video about ${selectedActivityObject.description.substring(0, 30)}...`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -279,7 +243,6 @@ export default function VolunteerPage() {
             </div>
           )}
 
-          {/* Registration Form (Conditional based on requiresRegistration and date) */}
           {selectedActivityObject.requiresRegistration && (
             <div className="mt-8 pt-8 border-t border-white/50 text-left">
               {isSelectedActivityInPast ? (
@@ -377,7 +340,6 @@ export default function VolunteerPage() {
         </div>
       )}
 
-      {/* Message for no activity selected / no activity on date */}
       {!selectedActivityObject && selectedDate && (
          <div className="bg-white/40 border border-white/30 backdrop-blur-sm rounded-lg shadow-xl p-6 max-w-3xl mx-auto text-center animate-fadeIn">
            <h3 className="text-xl font-semibold text-gray-900 mb-3">
