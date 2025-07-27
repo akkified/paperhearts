@@ -20,6 +20,7 @@ const NavBar = () => {
     { label: "Home", href: "/", id: "home" },
     { label: "About Us", href: "/about", id: "about" },
     { label: "Meet the Team", href: "/team", id: "team" },
+    { label: "Volunteer!", href: "/volunteer", id: "volunteer" }, // <--- NEW LINK ADDED HERE
   ]
 
   // Close dropdown when clicking outside
@@ -45,12 +46,12 @@ const NavBar = () => {
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
         <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-sm">
-          <Image 
-            src="/logo.png" 
-            alt="PaperHearts Logo" 
-            width={100} 
-            height={100} 
-            className="w-8 h-8 object-cover rounded-sm" 
+          <Image
+            src="/logo.png"
+            alt="PaperHearts Logo"
+            width={100}
+            height={100}
+            className="w-8 h-8 object-cover rounded-sm"
           />
         </div>
         <span className="text-gray-900 font-semibold text-lg">PaperHearts</span>
