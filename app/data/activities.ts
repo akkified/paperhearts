@@ -11,7 +11,7 @@ export interface Activity {
   // Your array of activities
   export const activities: Activity[] = [
     {
-      date: '2025-08-01',
+      date: '2025-09-01',
       description: 'First Activity! Join us at Towne Club Windermere (3950 Towne Club Pkwy, Cumming, GA, 30041). We will be doing some arts and crafts to entertain the elderly.',
       youtubeId: 'FzX101pM8v8', // Replace with relevant video ID
       requiresRegistration: true,
