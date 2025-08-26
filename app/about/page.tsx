@@ -44,7 +44,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
             {/* Image Placeholder - Replace with your actual image */}
             <div className="w-full md:w-1/2">
-              <img src="/path/to/elderly-love-image.jpg" alt="Elderly Love" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+              <img src="/elderly-help.jpeg" alt="Elderly Love" className="rounded-lg shadow-lg w-full h-auto object-cover" />
             </div>
             <div className="w-full md:w-1/2 text-left">
               <div className="mb-6">
