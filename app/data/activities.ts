@@ -16,4 +16,16 @@ export interface Activity {
       youtubeId: 'FzX101pM8v8', // Replace with relevant video ID
       requiresRegistration: true,
     },
+    {
+      date: '2025-08-31',
+      description: 'Officer Meeting! Officers only',
+      youtubeId: 'FzX101pM8v8', // Replace with relevant video ID
+      requiresRegistration: false,
+    },
+    {
+      date: '2025-09-07',
+      description: 'test activity',
+      youtubeId: 'FzX101pM8v8', // Replace with relevant video ID
+      requiresRegistration: true,
+    },
   ];
