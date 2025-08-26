@@ -219,16 +219,15 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/rukayat.jpeg"
-                  alt="Rukayat Fahad"
+                  src="/headshot/asha.jpeg"
+                  alt="Asha Annae"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Rukayat Fahad</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Marketing and Design Officer</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-1">Asha Annae</h3>
+              <p className="text-sm font-medium text-gray-700 mb-3">Community and Outreach Officer</p>
               <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Marketing & Design Officer is to create beautiful visuals and marketing materials that
-                share our mission and attract support for our nonprofit."
+                "My role as the Community and Outreach officer is to contact our sponsors and spread initiative with other teens and students in our area."
               </p>
             </div>
 
