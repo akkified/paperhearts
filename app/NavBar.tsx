@@ -20,7 +20,7 @@ const NavBar = () => {
     { label: "Home", href: "/", id: "home" },
     { label: "About Us", href: "/about", id: "about" },
     { label: "Meet the Team", href: "/team", id: "team" },
-    { label: "Volunteer!", href: "/volunteer", id: "volunteer" }, // <--- NEW LINK ADDED HERE
+    { label: "Volunteer!", href: "/volunteer", id: "volunteer" },
   ]
 
   // Close dropdown when clicking outside
