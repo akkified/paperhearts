@@ -136,7 +136,7 @@ export default function RootLayout({
                   <Linkedin size={24} aria-hidden="true" />
                 </a>
                 <a
-                  href="mailto:akki.akella@gmail.com"
+                  href="mailto:paperhearts.studentled@gmail.com"
                   aria-label="Email PaperHearts"
                   className="hover:text-purple-300 transition-colors duration-200"
                 >
