@@ -14,15 +14,8 @@ export default function Home() {
   // Define your array of image URLs for the carousel
   const carouselImages = [
     "/elderly-help.jpeg",
-    "/anish.jpeg",
-    "/tanvi.jpeg",
-    "/anisha.jpeg",
-    "https://placehold.co/600x400/B0E0E0/FFFFFF?text=Art+Piece+5",
-    "https://placehold.co/600x400/D0F0F0/FFFFFF?text=Art+Piece+6",
-    "https://placehold.co/600x400/F0A0B0/FFFFFF?text=Art+Piece+7",
-    "https://placehold.co/600x400/A0C0D0/FFFFFF?text=Art+Piece+8",
-    "https://placehold.co/600x400/C0E0F0/FFFFFF?text=Art+Piece+9",
-    "https://placehold.co/600x400/E0B0C0/FFFFFF?text=Art+Piece+10",
+    "/painting-seniors.jpeg",
+    "/full-team.jpeg",
   ];
 
   return (
