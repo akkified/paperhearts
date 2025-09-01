@@ -262,19 +262,6 @@ export default function VolunteerPage() {
             </h3>
             <p className="text-gray-700 leading-relaxed mb-4">{selectedActivityObject.description}</p>
 
-            {selectedActivityObject.youtubeId && (
-              <div className="relative w-full aspect-video rounded-lg overflow-hidden mx-auto shadow-md mt-4">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src={`http://www.youtube.com/embed/${selectedActivityObject.youtubeId}`}
-                  title={`YouTube video about ${selectedActivityObject.description.substring(0, 30)}...`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
-
             {selectedActivityObject.requiresRegistration && (
               <div className="mt-8 pt-8 border-t border-white/50 text-left">
                 {isSelectedActivityInPast ? (
