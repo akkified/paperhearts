@@ -110,7 +110,7 @@ export default function Home() {
 
       <div className="py-16 overflow-hidden">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Proud Sponsors</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Proud Partners and Sponsors</h2>
         </div>
         <div className="relative">
           <div className="flex animate-scroll">
@@ -135,69 +135,7 @@ export default function Home() {
                 <span className="text-white font-bold text-lg">VOLO</span>
               </div>
             </div>
-
-            <div className="flex items-center space-x-12 min-w-max pr-12">
-              <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-lg">LO</span>
-              </div>
-              <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm">Sponsor</span>
-              </div>
-              <div className="w-24 h-16 bg-blue-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">sponsor</span>
-              </div>
-              <div className="w-20 h-20 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">Sponsor</span>
-              </div>
-              <div className="w-24 h-16 bg-yellow-300 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm">sponsor</span>
-              </div>
-              <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center border-4 border-red-500 flex-shrink-0">
-                <span className="text-white font-bold text-lg">VOLO</span>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-12 min-w-max pr-12">
-              <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-lg">LO</span>
-              </div>
-              <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm">Sponsor</span>
-              </div>
-              <div className="w-24 h-16 bg-blue-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">sponsor</span>
-              </div>
-              <div className="w-20 h-20 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">Sponsor</span>
-              </div>
-              <div className="w-24 h-16 bg-yellow-300 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm">sponsor</span>
-              </div>
-              <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center border-4 border-red-500 flex-shrink-0">
-                <span className="text-white font-bold text-lg">VOLO</span>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-12 min-w-max pr-12">
-              <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-lg">LO</span>
-              </div>
-              <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm">Sponsor</span>
-              </div>
-              <div className="w-24 h-16 bg-blue-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">sponsor</span>
-              </div>
-              <div className="w-20 h-20 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-sm">Sponsor</span>
-              </div>
-              <div className="w-24 h-16 bg-yellow-300 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-black font-bold text-sm">sponsor</span>
-              </div>
-              <div className="w-20 h-20 bg-blue-900 rounded-full flex items-center justify-center border-4 border-red-500 flex-shrink-0">
-                <span className="text-white font-bold text-lg">VOLO</span>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
