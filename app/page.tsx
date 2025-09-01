@@ -13,10 +13,10 @@ export default function Home() {
 
   // Define your array of image URLs for the carousel
   const carouselImages = [
-    "https://placehold.co/600x400/A0BBE0/FFFFFF?text=Art+Piece+1",
-    "https://placehold.co/600x400/C0DDE0/FFFFFF?text=Art+Piece+2",
-    "https://placehold.co/600x400/E0F0F0/FFFFFF?text=Art+Piece+3",
-    "https://placehold.co/600x400/F0C0D0/FFFFFF?text=Art+Piece+4",
+    "/elderly-help.jpeg",
+    "/anish.jpeg",
+    "/tanvi.jpeg",
+    "/anisha.jpeg",
     "https://placehold.co/600x400/B0E0E0/FFFFFF?text=Art+Piece+5",
     "https://placehold.co/600x400/D0F0F0/FFFFFF?text=Art+Piece+6",
     "https://placehold.co/600x400/F0A0B0/FFFFFF?text=Art+Piece+7",
