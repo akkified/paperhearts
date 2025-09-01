@@ -139,7 +139,7 @@ export default function About() {
             </div>
             {/* Image Placeholder - Replace with your actual image */}
             <div className="w-full md:w-1/2">
-              <img src="/path/to/our-impact-image.jpg" alt="Our Impact" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+              <img src="meeting.jpeg" alt="Our Impact" className="rounded-lg shadow-lg w-full h-auto object-cover" />
             </div>
           </div>
         </div>
