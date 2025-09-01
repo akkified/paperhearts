@@ -104,7 +104,7 @@ export default function About() {
           <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
             {/* Image Placeholder - Replace with your actual image */}
             <div className="w-full md:w-1/2">
-              <img src="/path/to/meetups-image.jpg" alt="Monthly Meetups" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+              <img src="meeting.jpeg" alt="Monthly Meetups" className="rounded-lg shadow-lg w-full h-auto object-cover" />
             </div>
             <div className="w-full md:w-1/2 text-left">
               <div className="mb-6">
@@ -139,7 +139,7 @@ export default function About() {
             </div>
             {/* Image Placeholder - Replace with your actual image */}
             <div className="w-full md:w-1/2">
-              <img src="meeting.jpeg" alt="Our Impact" className="rounded-lg shadow-lg w-full h-auto object-cover" />
+              <img src="/path/to/our-impact-image.jpg" alt="Our Impact" className="rounded-lg shadow-lg w-full h-auto object-cover" />
             </div>
           </div>
         </div>
