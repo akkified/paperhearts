@@ -1,21 +1,11 @@
 "use client"
 
 import type React from "react"
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import Script from "next/script"
 
 // --- Import Activities Data and Interface ---
 import { activities, type Activity } from "../data/activities"
-
-declare global {
-  interface Window {
-    tf: {
-      load: () => void
-      reload: () => void
-    }
-  }
-}
 
 export default function VolunteerPage() {
   const today = new Date()
@@ -26,18 +16,6 @@ export default function VolunteerPage() {
 
   const [selectedActivityObject, setSelectedActivityObject] = useState<Activity | null>(null)
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    activityDate: "",
-    activityDescription: "",
-  })
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
-
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkdgvan"
 
   const { daysInMonth, firstDayOfMonth, days } = useMemo(() => {
     const dInMonth = new Date(currentYear, currentMonth, 0).getDate()
@@ -56,15 +34,6 @@ export default function VolunteerPage() {
   const handleMonthChange = (direction: "prev" | "next") => {
     setSelectedDate(null)
     setSelectedActivityObject(null)
-    setFormStatus("idle")
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      activityDate: "",
-      activityDescription: "",
-    })
 
     if (direction === "prev") {
       if (currentMonth === 1) {
@@ -86,15 +55,6 @@ export default function VolunteerPage() {
   const handleDayClick = (day: number | null) => {
     setSelectedDate(null)
     setSelectedActivityObject(null)
-    setFormStatus("idle")
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      activityDate: "",
-      activityDescription: "",
-    })
 
     if (day) {
       const dateString = `${currentYear}-${String(currentMonth).padStart(2, "0")}-${String(day).padStart(2, "0")}`
@@ -102,14 +62,6 @@ export default function VolunteerPage() {
 
       setSelectedDate(dateString)
       setSelectedActivityObject(foundActivity || null)
-
-      if (foundActivity) {
-        setFormData((prev) => ({
-          ...prev,
-          activityDate: formatDateForDisplay(dateString),
-          activityDescription: foundActivity.description.substring(0, 100) + "...",
-        }))
-      }
     } else {
       setSelectedDate(null)
       setSelectedActivityObject(null)
@@ -123,65 +75,14 @@ export default function VolunteerPage() {
     return date.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setFormStatus("submitting")
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-
-      if (response.ok) {
-        setFormStatus("success")
-        setFormData({ name: "", email: "", phone: "", message: "", activityDate: "", activityDescription: "" })
-      } else {
-        setFormStatus("error")
-      }
-    } catch (error) {
-      console.error("Form submission error:", error)
-      setFormStatus("error")
-    }
-  }
-
   const isSelectedActivityInPast = useMemo(() => {
     if (!selectedDate) return false
     const activityDate = new Date(selectedDate)
     return activityDate < today
   }, [selectedDate, today])
 
-  useEffect(() => {
-    if (selectedActivityObject?.requiresRegistration && !isSelectedActivityInPast) {
-      // Reinitialize Typeform embed when the modal opens
-      if (window.tf && window.tf.load) {
-        window.tf.load()
-      }
-    }
-  }, [selectedActivityObject, isSelectedActivityInPast])
-
   return (
     <>
-      <Script
-        src="//embed.typeform.com/next/embed.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          console.log("[v0] Typeform script loaded")
-          // Initialize Typeform after script loads
-          if (window.tf && window.tf.load) {
-            window.tf.load()
-          }
-        }}
-      />
-
       <div className="min-h-screen container mx-auto px-6 py-12">
         <div className="text-center mb-10">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">Volunteer With Us!</h1>
@@ -281,13 +182,20 @@ export default function VolunteerPage() {
                     </h3>
 
                     <div className="w-full min-h-[600px] max-h-[80vh] rounded-lg overflow-auto bg-white border border-gray-200">
-                      <div
-                        data-tf-live="01K3HRJ9Z9YWR38BEF77QCYKT6"
-                        data-tf-opacity="100"
-                        data-tf-hide-headers
-                        data-tf-hide-footer
-                        style={{ width: "100%", minHeight: "600px" }}
-                      ></div>
+                      <iframe
+                        key={`youform-iframe-${selectedDate}`}
+                        src="https://app.youform.com/forms/urzevrpc"
+                        loading="lazy"
+                        width="100%"
+                        height="700"
+                        frameBorder="0"
+                        style={{ 
+                          minHeight: '700px',
+                          border: 'none',
+                          borderRadius: '8px'
+                        }}
+                        title="Volunteer Registration Form"
+                      />
                     </div>
                   </>
                 )}
