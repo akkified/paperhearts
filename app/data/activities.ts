@@ -18,14 +18,14 @@ export interface Activity {
     },
     {
       date: '2025-08-31',
-      description: 'Officer Meeting! Officers only',
-      youtubeId: 'FzX101pM8v8', // Replace with relevant video ID
+      description: 'Officer Meeting! We discussed our plans for future events, and any ideas about advertising.',
+      youtubeId: 'FzX101pM8v8', 
       requiresRegistration: false,
     },
     {
       date: '2025-09-07',
       description: 'test activity',
-      youtubeId: 'FzX101pM8v8', // Replace with relevant video ID
+      youtubeId: 'FzX101pM8v8', 
       requiresRegistration: true,
     },
   ];

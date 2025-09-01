@@ -20,6 +20,7 @@ const NavBar = () => {
     { label: "Home", href: "/", id: "home" },
     { label: "About Us", href: "/about", id: "about" },
     { label: "Meet the Team", href: "/team", id: "team" },
+    { label: "Blog", href: "/blog", id: "blog" },
     { label: "Volunteer!", href: "/volunteer", id: "volunteer" },
   ]
 

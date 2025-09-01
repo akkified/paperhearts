@@ -110,8 +110,11 @@ export default function RootLayout({
                 <Link href="/team" className="hover:text-purple-300 transition-colors duration-200">
                   Meet the Team
                 </Link>
+                <Link href="/blog" className="hover:text-purple-300 transition-colors duration-200">
+                  Blogs
+                </Link>
                 <Link href="/volunteer" className="hover:text-purple-300 transition-colors duration-200">
-                  Volunteer!
+                Volunteer!
                 </Link>
               </div>
 
