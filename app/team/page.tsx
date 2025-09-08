@@ -27,7 +27,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/eeshasri.jpeg"
+                  src="/headshot/eeshasri.png"
                   alt="Eeshasri Alpuri"
                   className="w-full h-full object-cover"
                 />
@@ -89,7 +89,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/sahasra.jpeg"
+                  src="/headshot/sahasra.png"
                   alt="Sahasra Madhu"
                   className="w-full h-full object-cover"
                 />
@@ -170,7 +170,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/thrina.jpeg"
+                  src="/headshot/thrina.png"
                   alt="Thrina Maniyendra"
                   className="w-full h-full object-cover"
                 />
@@ -219,7 +219,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/asha.jpeg"
+                  src="/headshot/asha.png"
                   alt="Asha Annae"
                   className="w-full h-full object-cover"
                 />
