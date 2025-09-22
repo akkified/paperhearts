@@ -20,8 +20,8 @@ export interface Activity {
       requiresRegistration: false,
     },
     {
-      date: '2025-09-18',
-      description: 'Football Game! Come with us to the West Forsyth sports games, where we sell baked goods!', 
+      date: '2025-10-12',
+      description: 'We will be meeting at Towne Club Windermere for the fall festival from 10 to 12. We need help running games!', 
       requiresRegistration: true,
     },
   ];
