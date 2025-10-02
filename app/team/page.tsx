@@ -61,7 +61,7 @@ export default function Team() {
             <div className="text-center">
               <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
                 <img
-                  src="/headshot/akhil.jpeg"
+                  src="/headshot/akhil.png"
                   alt="Akhil Akella"
                   className="w-full h-full object-cover"
                 />
