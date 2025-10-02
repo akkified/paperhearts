@@ -20,7 +20,7 @@ export interface Activity {
       requiresRegistration: false,
     },
     {
-      date: '2025-10-12',
+      date: '2025-10-11',
       description: 'We will be meeting at Towne Club Windermere for the fall festival from 10 to 12. We need help running games!', 
       requiresRegistration: true,
     },
