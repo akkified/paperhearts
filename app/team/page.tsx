@@ -1,270 +1,114 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 export default function Team() {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Meet <span className="text-white">Our Team</span>
-            </h1>
-            <p className="text-gray-800 text-xl leading-relaxed max-w-2xl">
-              The passionate people behind PaperHearts who make our mission possible.
-            </p>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 relative overflow-hidden">
+
+      {/* Decorative bubbles */}
+      <div className="absolute top-20 left-10 w-40 h-40 bg-pink-300/30 rounded-full blur-2xl animate-pulse" />
+      <div className="absolute top-96 right-20 w-56 h-56 bg-purple-300/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-40 left-1/3 w-64 h-64 bg-blue-300/30 rounded-full blur-3xl animate-pulse" />
+
+      {/* Hero */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="py-28 relative z-10"
+      >
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-6xl font-extrabold mb-6 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+            Meet the Team ✨
+          </h1>
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            The hearts, minds, and creativity behind{" "}
+            <span className="font-semibold">PaperHearts</span>.
+          </p>
         </div>
-      </div>
+      </motion.section>
 
-      {/* Our Founders Section */}
-      <div className="bg-white/40 backdrop-blur-sm py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Founders</h2>
-          </div>
+      {/* Leadership */}
+      <Section title="Leadership" subtitle="Vision & direction">
+        <Grid cols="md:grid-cols-3">
+          <Card name="Eeshasri Alpuri" role="President" img="/headshot/eeshasri.png" />
+          <Card name="Amira Vanjaria" role="Vice President" img="/headshot/amira.jpeg" />
+          <Card name="Akhil Akella" role="Software Manager" img="/headshot/akhil.png" />
+        </Grid>
+      </Section>
 
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {/* Founder 1 */}
-            <div className="text-center">
-              <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/eeshasri.png"
-                  alt="Eeshasri Alpuri"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">Eeshasri Alpuri</h3>
-              <p className="text-sm font-medium text-gray-700 mb-4">President</p>
-              <p className="text-sm text-gray-600 italic leading-relaxed">
-                "My role as the President is to lead the team, oversee all operations, and ensure the nonprofit stays
-                focused, organized, and true to its mission."
-              </p>
-            </div>
+      {/* Operations */}
+      <Section title="Operations" subtitle="Keeping everything running smoothly">
+        <Grid cols="md:grid-cols-2 lg:grid-cols-4">
+          <Card name="Sahasra Madhu" role="Secretary" img="/headshot/sahasra.png" />
+          <Card name="Yagnasri Korada" role="Treasurer" img="/headshot/yagna.jpeg" />
+          <Card name="Rithikha Naresh" role="Program Director" img="/headshot/rithikha.png" />
+          <Card name="Yashasri Korada" role="Volunteer Coordinator" img="/headshot/yash.jpeg" />
+        </Grid>
+      </Section>
 
-            {/* Founder 2 */}
-            <div className="text-center">
-              <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/amira.jpeg"
-                  alt="Amira Vanjaria"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">Amira Vanjaria</h3>
-              <p className="text-sm font-medium text-gray-700 mb-4">Vice President</p>
-              <p className="text-sm text-gray-600 italic leading-relaxed">
-                "My role as the Vice President is to support the President, help lead the team, step in when needed, and
-                make sure our nonprofit runs smoothly and stays true to its mission."
-              </p>
-            </div>
+      {/* Outreach & Media */}
+      <Section title="Outreach & Media" subtitle="Community, events, and growth">
+        <Grid cols="md:grid-cols-2 lg:grid-cols-4">
+          <Card name="SaiAnish Alpuri" role="PR Officer" img="/headshot/anish.png" />
+          <Card name="Akshaj Nandanavanam" role="Partnership Officer" img="/headshot/akshaj.jpeg" />
+          <Card name="DhanaSugani Sundar" role="Social Media Manager" img="/headshot/dhana.png" />
+          <Card name="Sahasyaa Shanmugapandian" role="Marketing & Design Officer" img="/headshot/saha.png" />
+          <Card name="Asha Annae" role="Community & Outreach Officer" img="/headshot/asha.png" />
+          <Card name="Thrina Maniyendra" role="Event Planner" img="/headshot/thrina.png" />
+        </Grid>
+      </Section>
 
-            {/* Founder 3 */}
-            <div className="text-center">
-              <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/akhil.png"
-                  alt="Akhil Akella"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">Akhil Akella</h3>
-              <p className="text-sm font-medium text-gray-700 mb-4">Software Manager</p>
-              <p className="text-sm text-gray-600 italic leading-relaxed">
-                "My role as the Software Designer is to build, update, and manage our website and digital tools so
-                people can easily access information, donate, and get involved with our mission."
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Team Section */}
-      <div className="bg-white/60 backdrop-blur-sm py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {/* Row 1 */}
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/sahasra.png"
-                  alt="Sahasra Madhu"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Sahasra Madhu</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Secretary</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Secretary is to keep our team organized by taking meeting notes, managing important
-                documents, and making sure communication stays clear and consistent."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/yagna.jpeg"
-                  alt="Yagnasri Korada"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Yagnasri Korada</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Treasurer</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Treasurer is to manage our donations, track spending, create budgets, and ensure our
-                nonprofit stays financially healthy and transparent."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/anish.png"
-                  alt="SaiAnish Alpuri"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">SaiAnish Alpuri</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">PR Officer</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the PR Officer is to build our public image by sharing impactful stories, connecting with
-                media, and helping the world understand and support our mission."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/akshaj.jpeg"
-                  alt="Akshaj Nandanavanam"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Akshaj Nandanavanam</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Partnership Officer</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Partnerships Officer is to build and maintain relationships with schools, businesses,
-                donors, and sponsors to bring in support and resources for our mission."
-              </p>
-            </div>
-
-            {/* Row 2 */}
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/dhana.png"
-                  alt="DhanaSugani Sundar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">DhanaSugani Sundar</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Social Media Manager</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Social Media Manager is to share our story online through posts, photos, and videos that
-                inspire people to support, volunteer, and spread kindness with us."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/thrina.png"
-                  alt="Thrina Maniyendra"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Thrina Maniyendra</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Event Planner</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Event Planner is to organize and run fundraisers, volunteer events, and donation drives
-                that bring our community together and support our mission."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                    src="/headshot/rithikha.png"
-                  alt="Rithikha Naresh"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Rithikha Naresh</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Program Director</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Programs Director is to plan, oversee, and coordinate all our projects and activities to
-                make sure they run smoothly and make a real impact."
-              </p>
-            </div>
-
-            {/* Row 3 */}
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/yash.jpeg"
-                  alt="Yashasri Korada"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Yashasri Korada</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Volunteer Coordinator</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Volunteer Coordinator is to recruit, train, and schedule volunteers to help run our
-                programs and events smoothly and joyfully."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/asha.png"
-                  alt="Asha Annae"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Asha Annae</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Community and Outreach Officer</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Community and Outreach officer is to contact our sponsors and spread initiative with other teens and students in our area."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/anisha.jpeg"
-                  alt="Anisha Pradhan"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Anisha Pradhan</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Marketing and Design Officer</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Marketing Officer is to develop and execute strategies that promote our mission, grow
-                our audience, and engage supporters through campaigns and outreach."
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-                <img
-                  src="/headshot/tanvi.png"
-                  alt="Tanvi Manche"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-1">Tanvi Manche</h3>
-              <p className="text-sm font-medium text-gray-700 mb-3">Basic Needs Coordinator</p>
-              <p className="text-xs text-gray-600 italic leading-relaxed">
-                "My role as the Basic Needs Coordinator is to organize, sort, and manage all donated items to ensure
-                every care package is complete, thoughtful, and ready to bring comfort to those we serve."
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+  )
+}
+
+/* ---------- Components ---------- */
+
+function Section({ title, subtitle, children }) {
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="py-20 relative z-10"
+    >
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">{title}</h2>
+          <p className="text-gray-600">{subtitle}</p>
+        </div>
+        {children}
+      </div>
+    </motion.section>
+  )
+}
+
+function Grid({ cols, children }) {
+  return (
+    <div className={`grid gap-10 ${cols} max-w-7xl mx-auto`}>
+      {children}
+    </div>
+  )
+}
+
+function Card({ name, role, img }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", stiffness: 120, damping: 15 }}
+      whileHover={{ scale: 1.05 }}
+      className="group bg-white/70 backdrop-blur-lg rounded-3xl p-6 text-center shadow-lg hover:shadow-2xl transition-all duration-300"
+    >
+      <div className="w-36 h-36 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-pink-200 group-hover:ring-purple-300 transition">
+        <img src={img} alt={name} className="w-full h-full object-cover" />
+      </div>
+      <h3 className="text-lg font-bold text-gray-900">{name}</h3>
+      <p className="text-sm font-medium text-purple-600">{role}</p>
+    </motion.div>
   )
 }
