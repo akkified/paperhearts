@@ -8,6 +8,7 @@ import Logout from "@/components/Logout"
 import { useState, useRef, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import Image from "next/image"
+import { ChevronDown, Menu, X, Heart } from "lucide-react"
 
 const NavBar = () => {
   const currentPath = usePathname()
@@ -16,136 +17,128 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const links = [
-    { label: "Home", href: "/", id: "home" },
-    { label: "About Us", href: "/about", id: "about" },
-    { label: "Meet the Team", href: "/team", id: "team" },
-    { label: "Blog", href: "/blog", id: "blog" },
-    { label: "Volunteer!", href: "/volunteer", id: "volunteer" },
-  ]
-
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsProfileDropdownOpen(false)
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen)
-  }
+  const links = [
+    { label: "Home", href: "/", id: "home" },
+    { label: "About", href: "/about", id: "about" },
+    { label: "Team", href: "/team", id: "team" },
+    { label: "Blog", href: "/blog", id: "blog" },
+    { label: "Volunteer!", href: "/volunteer", id: "volunteer" },
+  ]
 
   return (
-    <nav className="relative flex items-center justify-between px-6 py-4 backdrop-blur-sm border-b border-white/20">
-      {/* Logo */}
-      <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-        <div className="w-8 h-8 rounded-lg flex items-center justify-center shadow-sm">
-          <Image
-            src="/logo.png"
-            alt="PaperHearts Logo"
-            width={100}
-            height={100}
-            className="w-8 h-8 object-cover rounded-sm"
-          />
-        </div>
-        <span className="text-gray-900 font-semibold text-lg">PaperHearts</span>
-      </Link>
+    <nav className="sticky top-0 w-full z-[100] bg-[#f8f5ff]/90 backdrop-blur-md border-b border-purple-100 px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        
+        {/* LOGO SECTION - No Background Box */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-9 h-9 transition-transform group-hover:scale-110 group-hover:-rotate-3">
+            <Image
+              src="/logo.png"
+              alt="PaperHearts Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+          <span className="text-[#3a223a] font-black text-xl uppercase tracking-tighter italic">
+            Paper<span className="text-pink-500">Hearts</span>
+          </span>
+        </Link>
 
-      {/* Navigation Links */}
-      <ul className="hidden md:flex items-center space-x-8">
-        {links.map((link) => (
-          <li key={link.id}>
-            <Link
-              className={classnames({
-                "text-gray-900 font-medium": link.href === currentPath,
-                "text-gray-700": link.href !== currentPath,
-                "hover:text-gray-900 transition-colors": true,
-              })}
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      {/* Profile/Login Section */}
-      <div className="hidden md:flex items-center">
-        {status === "loading" ? (
-          <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"></div>
-        ) : session?.user ? (
-          <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={toggleProfileDropdown}
-              className="flex items-center gap-2 hover:opacity-80 transition-opacity focus:outline-none"
-            >
-              <Image
-                src={session.user.image || "/placeholder.svg?height=32&width=32"}
-                alt={session.user.name || "User"}
-                width={32}
-                height={32}
-                className="rounded-full border-2 border-white/20"
-              />
-              <span className="text-gray-900 text-sm font-medium">{session.user.name}</span>
-              <svg
-                className={`w-4 h-4 text-gray-600 transition-transform ${isProfileDropdownOpen ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center space-x-8">
+          {links.map((link) => (
+            <li key={link.id}>
+              <Link
+                className={classnames({
+                  "text-[#3a223a] font-black underline decoration-pink-500 decoration-2 underline-offset-4": link.href === currentPath,
+                  "text-[#3a223a]/60 font-bold hover:text-[#3a223a]": link.href !== currentPath,
+                  "text-[11px] uppercase tracking-[0.2em] transition-all": true,
+                })}
+                href={link.href}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-            {/* Profile Dropdown */}
-            {isProfileDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white/90 backdrop-blur-sm border border-white/30 rounded-lg shadow-lg z-50">
-                <div className="py-2">
-                  <Link
-                    href="/donate"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/50 transition-colors"
-                    onClick={() => setIsProfileDropdownOpen(false)}
-                  >
-                    Donate
-                  </Link>
-                  <div className="border-t border-white/30 my-1"></div>
-                  <div className="px-4 py-2">
-                    <Logout />
+        {/* Profile/Login Section */}
+        <div className="hidden md:flex items-center">
+          {status === "loading" ? (
+            <div className="w-8 h-8 bg-purple-100 rounded-full animate-pulse" />
+          ) : session?.user ? (
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsProfileDropdownOpen(!isProfileDropdownOpen)}
+                className="flex items-center gap-3 p-1 pr-3 rounded-full hover:bg-white transition-all border border-transparent hover:border-purple-100 focus:outline-none"
+              >
+                <div className="relative w-8 h-8">
+                  <Image
+                    src={session.user.image || "/placeholder.svg"}
+                    alt="User"
+                    fill
+                    className="rounded-full border-2 border-pink-500 object-cover"
+                  />
+                </div>
+                <span className="text-[#3a223a] text-xs font-black uppercase tracking-widest">
+                  {session.user.name?.split(' ')[0]}
+                </span>
+                <ChevronDown size={14} className={classnames("transition-transform text-gray-400", {"rotate-180": isProfileDropdownOpen})} />
+              </button>
+
+              {/* Profile Dropdown - Highest Z-index layer */}
+              {isProfileDropdownOpen && (
+                <div className="absolute right-0 mt-3 w-52 bg-white border-2 border-[#3a223a] shadow-[8px_8px_0px_0px_rgba(58,34,58,0.1)] z-[120] rounded-sm overflow-hidden">
+                  <div className="py-1">
+                    <Link
+                      href="/donate"
+                      className="flex items-center justify-between px-4 py-3 text-[10px] font-black uppercase tracking-widest text-[#3a223a] hover:bg-pink-50 transition-colors"
+                      onClick={() => setIsProfileDropdownOpen(false)}
+                    >
+                      Make a Donation
+                      <Heart size={14} className="text-pink-500 fill-pink-500" />
+                    </Link>
+                    <div className="border-t border-purple-100" />
+                    <div className="px-4 py-3 hover:bg-gray-50 transition-colors">
+                      <Logout />
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
-        ) : (
-          <LoginForm />
-        )}
-      </div>
+              )}
+            </div>
+          ) : (
+            <LoginForm />
+          )}
+        </div>
 
-      {/* Mobile Menu Button */}
-      <button className="md:hidden text-gray-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+        {/* Mobile Menu Button */}
+        <button className="md:hidden text-[#3a223a]" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white/90 backdrop-blur-sm border-b border-white/20 md:hidden z-40">
-          <div className="px-6 py-4 space-y-4">
+        <div className="fixed inset-x-0 top-[73px] bg-white border-b-4 border-[#3a223a] md:hidden z-[100] p-8 shadow-2xl">
+          <div className="flex flex-col space-y-6">
             {links.map((link) => (
               <Link
                 key={link.id}
                 className={classnames({
-                  "block text-gray-900 font-medium": link.href === currentPath,
-                  "block text-gray-700": link.href !== currentPath,
-                  "hover:text-gray-900 transition-colors": true,
+                  "text-[#3a223a] font-black text-2xl italic": link.href === currentPath,
+                  "text-[#3a223a]/40 font-black text-2xl italic": link.href !== currentPath,
+                  "uppercase tracking-tighter": true,
                 })}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -153,31 +146,24 @@ const NavBar = () => {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-white/20">
-              {status === "loading" ? (
-                <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse"></div>
-              ) : session?.user ? (
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={session.user.image || "/placeholder.svg?height=32&width=32"}
-                      alt={session.user.name || "User"}
-                      width={32}
-                      height={32}
-                      className="rounded-full border-2 border-white/20"
-                    />
-                    <span className="text-gray-900 font-medium">{session.user.name}</span>
+            <div className="pt-6 border-t border-purple-100">
+              {session?.user ? (
+                <div className="flex flex-col gap-6">
+                   <div className="flex items-center gap-3">
+                    <div className="relative w-10 h-10">
+                      <Image
+                        src={session.user.image || "/placeholder.svg"}
+                        alt="User"
+                        fill
+                        className="rounded-full border-2 border-pink-500 object-cover"
+                      />
+                    </div>
+                    <span className="text-[#3a223a] font-black uppercase tracking-widest text-sm">{session.user.name}</span>
                   </div>
-                  <Link
-                    href="/donate"
-                    className="block text-gray-700 hover:text-gray-900 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Donate
+                  <Link href="/donate" className="flex items-center gap-2 text-pink-500 font-black uppercase tracking-widest text-sm" onClick={() => setIsMobileMenuOpen(false)}>
+                    <Heart size={16} className="fill-pink-500" /> Donate
                   </Link>
-                  <div className="pt-1">
-                    <Logout />
-                  </div>
+                  <Logout />
                 </div>
               ) : (
                 <LoginForm />

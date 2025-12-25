@@ -2,6 +2,7 @@
 
 import { Heart, Users, Calendar } from "lucide-react"
 import { signIn } from "next-auth/react"
+import { motion } from "framer-motion"
 import CountUp from "@/components/CountUp/CountUp";
 
 export default function About() {
@@ -10,159 +11,150 @@ export default function About() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-24 relative overflow-hidden" 
+      style={{
+        backgroundColor: "#eaddf2",
+        backgroundImage: `radial-gradient(#d8b4fe 1px, transparent 0)`,
+        backgroundSize: "4px 4px"
+      }}>
+      
+      {/* Texture Layer */}
+      <div className="fixed inset-0 pointer-events-none opacity-20 mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
+
       {/* Hero Section */}
-      <div className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl">
-            <div className="mb-8"></div>
-            <h1 className="text-5xl lg:text-6xl font-bold mb-8">
-              About <span className="text-white">Our Mission</span>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="py-24 relative z-10"
+      >
+        <div className="container mx-auto px-6 text-center">
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-[#b36a7a]">Our Philosophy</span>
+            <h1 className="text-6xl lg:text-8xl font-black mb-8 text-[#3a223a] tracking-tighter">
+              PAPER<span className="text-white italic">HEARTS</span>
             </h1>
-            <p className="text-gray-800 text-lg leading-relaxed max-w-3xl">
-              Paperhearts is a student-led nonprofit dedicated to spreading comfort, joy and hope to children in foster care and the elderly by creating handmade gifts and meaningful connections through arts and crafts. We raise funds through community events and bring those funds to foster cares and senior citizen homes. There, we set up arts and crafts booths to do alongside them. Our mission is to fight loneliness, trauma and isolation by making people feel seen, connected and loved.
+            <p className="text-[#3a223a] text-xl leading-relaxed max-w-3xl mx-auto font-medium">
+              We are a student-led nonprofit dedicated to fighting loneliness, trauma, and isolation through the simple, tactile power of arts and crafts.
+            </p>
+        </div>
+      </motion.div>
+
+      {/* Our Story Section - "Pinned Paper" Style */}
+      <div className="container mx-auto px-6 mb-32">
+        <motion.div 
+          whileHover={{ rotate: 0 }}
+          className="max-w-4xl mx-auto bg-[#fdfaff] p-12 shadow-2xl relative border border-purple-100 -rotate-1"
+        >
+          {/* 3D Push Pins */}
+          <Pin color="#ec4899" className="top-4 left-4" />
+          <Pin color="#a855f7" className="top-4 right-4" />
+          
+          <h2 className="text-4xl font-black text-[#3a223a] mb-8 uppercase tracking-tight">Our Story</h2>
+          <p className="text-[#3a223a] text-lg leading-relaxed italic">
+            "Art is the thread that stitches hearts together — across generations, languages, and lifetimes." We started this because the world felt chaotic, and we were tired of waiting for someone else to fix it. We chose paper and glue as our tools to mend the gap between the youth, the elderly, and those in foster care.
+          </p>
+        </motion.div>
+      </div>
+
+      {/* Stats & Impact Sections */}
+      <div className="container mx-auto px-6 space-y-40">
+        
+        {/* Elderly Love Section */}
+        <div className="flex flex-col md:flex-row items-center gap-16 max-w-6xl mx-auto">
+          <div className="w-full md:w-1/2 relative group">
+            <Pin color="#ec4899" className="top-2 left-1/2 -translate-x-1/2 z-20" />
+            <div className="bg-white p-3 shadow-xl -rotate-2 group-hover:rotate-0 transition-transform duration-500">
+               <img src="/elderly-help.jpeg" alt="Elderly Love" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all" />
+            </div>
+          </div>
+          
+          <div className="w-full md:w-1/2">
+            <Heart className="w-12 h-12 text-white mb-6" />
+            <h2 className="text-5xl font-black text-[#3a223a] mb-6 tracking-tighter italic">Elderly Love</h2>
+            <div className="text-[#3a223a] leading-relaxed text-xl">
+              <span className="text-[#b36a7a] text-6xl font-black block mb-2">
+                <CountUp from={0} to={61} duration={1} />%
+              </span>
+              of seniors in nursing homes suffer from chronic loneliness. We use craft booths to ensure they are seen, connected, and never forgotten.
+            </div>
+          </div>
+        </div>
+
+        {/* Foster Child Welfare */}
+        <div className="flex flex-col md:flex-row-reverse items-center gap-16 max-w-6xl mx-auto">
+          <div className="w-full md:w-1/2 relative group">
+            <Pin color="#a855f7" className="top-2 left-1/2 -translate-x-1/2 z-20" />
+            <div className="bg-white p-3 shadow-xl rotate-2 group-hover:rotate-0 transition-transform duration-500">
+               <img src="/path/to/foster-child-image.jpg" alt="Foster Welfare" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all" />
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 text-right">
+            <Users className="w-12 h-12 text-white mb-6 ml-auto" />
+            <h2 className="text-5xl font-black text-[#3a223a] mb-6 tracking-tighter italic">Foster Welfare</h2>
+            <div className="text-[#3a223a] leading-relaxed text-xl">
+              <span className="text-purple-500 text-6xl font-black block mb-2">
+                <CountUp from={0} to={80} duration={1} />%
+              </span>
+              of foster children face neglect-related trauma. Our sessions provide a safe creative outlet to process emotions and build self-worth.
+            </div>
+          </div>
+        </div>
+
+        {/* Monthly Meetups */}
+        <div className="flex flex-col md:flex-row items-center gap-16 max-w-6xl mx-auto">
+          <div className="w-full md:w-1/2 relative group">
+            <Pin color="#f472b6" className="top-2 left-1/2 -translate-x-1/2 z-20" />
+            <div className="bg-[#fdfaff] p-8 shadow-2xl -rotate-1">
+
+               <img src="meeting.jpeg" alt="Monthly Meetups" className="mt-6 rounded-sm w-full h-auto" />
+            </div>
+          </div>
+          
+          <div className="w-full md:w-1/2">
+            <Calendar className="w-12 h-12 text-white mb-6" />
+            <h2 className="text-5xl font-black text-[#3a223a] mb-6 tracking-tighter uppercase">Meetups</h2>
+            <p className="text-[#3a223a] text-xl font-medium">
+              Every month, we hit the streets. We set up stands in public areas to bridge the gap between our mission and the community.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Our Story Section */}
-      <div className="bg-white/40 backdrop-blur-sm py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">Our Story</h2>
-            <p className="text-gray-800 text-lg leading-relaxed">
-            The PaperHearts community recognized that many non-profits only focus on providing essential needs and basic support. However, when we saw an opportunity to bring joy to the elderly and foster care communities, we took our chance to achieve this. We started this nonprofit because all of us love arts and crafts. We realized that art is the thread that stitches hearts together — across generations, languages, and lifetimes. Art brings people together in a way words never did. When people create together, they connect, memory by memory. Our community realized that the world that we are living in felt chaotic, and we were all tired of waiting for someone else to fix it. So PaperHearts, a passionate group of teens, decided to do something about it, one small act at a time.
-            </p>
-          </div>
-        </div>
+      {/* Call to Action */}
+      <div className="py-40 text-center">
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          className="inline-block relative p-12 bg-white shadow-2xl rotate-1 border border-purple-50"
+        >
+          <Pin color="#ec4899" className="-top-4 left-1/2 -translate-x-1/2" />
+          <h2 className="text-5xl font-black text-[#3a223a] mb-6 tracking-tighter uppercase">Make A Difference</h2>
+          <p className="text-[#b36a7a] text-lg mb-8 font-bold">Your donation funds the art supplies that mend hearts.</p>
+          <button
+            onClick={handleDonateClick}
+            className="bg-[#3a223a] hover:bg-black text-white px-10 py-5 rounded-sm font-black uppercase tracking-widest flex items-center gap-2 mx-auto transition-all shadow-lg active:translate-y-1"
+          >
+            <Heart className="w-5 h-5 fill-current" />
+            Donate Now
+          </button>
+        </motion.div>
       </div>
+    </div>
+  )
+}
 
-      {/* Elderly Love Section (Image Left, Text Right) */}
-      <div className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-            {/* Image Placeholder - Replace with your actual image */}
-            <div className="w-full md:w-1/2">
-              <img src="/elderly-help.jpeg" alt="Elderly Love" className="rounded-lg shadow-lg w-full h-auto object-cover" />
-            </div>
-            <div className="w-full md:w-1/2 text-left">
-              <div className="mb-6">
-                <Heart className="w-12 h-12 text-white" />
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Elderly Love</h2>
-              <p className="text-gray-800 leading-relaxed text-lg">
-                <span className="count-up-text text-gray-900 text-4xl font-bold inline"> {/* New span wrapper */}
-                  <CountUp
-                    from={0}
-                    to={61}
-                    separator=","
-                    direction="up"
-                    duration={0.5}
-                  />% {/* Percentage symbol moved inside the span */}
-                </span> of seniors in nursing homes suffer from loneliness due to the lack of visitors and the loss of
-                purpose. We want to show them that they are not forgotten, and that we do care about them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Foster Child Welfare Section (Text Left, Image Right) */}
-      <div className="bg-white/40 backdrop-blur-sm py-24">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-            <div className="w-full md:w-1/2 text-right">
-              <div className="mb-6">
-                <Users className="w-12 h-12 text-white ml-auto" />
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Foster Child Welfare</h2>
-              <p className="text-gray-800 leading-relaxed text-lg">
-                <span className="count-up-text text-gray-900 text-4xl font-bold inline"> {/* New span wrapper */}
-                  <CountUp
-                    from={0}
-                    to={80}
-                    separator=","
-                    direction="up"
-                    duration={0.5}
-                  />% {/* Percentage symbol moved inside the span */}
-                </span> of foster children have mental issues resulting from neglect and trauma. Our donations help fund
-                resources that we use to communicate with children to help them.
-              </p>
-            </div>
-            {/* Image Placeholder - Replace with your actual image */}
-            <div className="w-full md:w-1/2">
-              <img src="/path/to/foster-child-image.jpg" alt="Foster Child Welfare" className="rounded-lg shadow-lg w-full h-auto object-cover" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Monthly Meetups Section (Image Left, Text Right) */}
-      <div className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-            {/* Image Placeholder - Replace with your actual image */}
-            <div className="w-full md:w-1/2">
-              <img src="meeting.jpeg" alt="Monthly Meetups" className="rounded-lg shadow-lg w-full h-auto object-cover" />
-            </div>
-            <div className="w-full md:w-1/2 text-left">
-              <div className="mb-6">
-                <Calendar className="w-12 h-12 text-white" />
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Monthly Meetups</h2>
-              <p className="text-gray-800 leading-relaxed text-lg">
-                Monthly, we will set up a stand in a public area trying to teach the general about these issues through
-                fun activities and collaboration.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Our Impact Section (Text Left, Image Right) */}
-      <div className="bg-white/40 backdrop-blur-sm py-24">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-            <div className="w-full md:w-1/2 text-right">
-              <div className="mb-6">
-                {/* You can choose a new icon here, or omit if not applicable */}
-                <Heart className="w-12 h-12 text-white ml-auto" />
-              </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
-              <p className="text-gray-800 leading-relaxed text-lg">
-                Since our founding, Paperhearts has touched countless lives. We've hosted numerous craft events,
-                bringing smiles and fostering connections in senior care facilities and foster homes. Our community
-                outreach events has raised vital awareness and funds, enabling us to expand our reach and continue
-                our mission of fighting loneliness and promoting well-being through the power of art.
-              </p>
-            </div>
-            {/* Image Placeholder - Replace with your actual image */}
-            <div className="w-full md:w-1/2">
-              <img src="/path/to/our-impact-image.jpg" alt="Our Impact" className="rounded-lg shadow-lg w-full h-auto object-cover" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Call to Action Section */}
-      <div className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="mb-8"></div>
-            <h2 className="text-4xl font-bold text-white mb-6">Make A Difference Today</h2>
-            <p className="text-gray-800 text-lg mb-8 leading-relaxed">
-              Your donation helps us continue spreading love and kindness worldwide.
-            </p>
-            <button
-              onClick={handleDonateClick}
-              className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-full font-semibold flex items-center gap-2 mx-auto transition-colors shadow-lg"
-            >
-              <Heart className="w-5 h-5 fill-current" />
-              Donate Now
-            </button>
-          </div>
-        </div>
+/* Helper Component for the 3D Push Pin */
+function Pin({ color, className = "" }: { color: string, className?: string }) {
+  return (
+    <div className={`absolute z-30 pointer-events-none ${className}`}>
+      <div className="absolute top-6 left-2 w-4 h-4 bg-black/20 blur-sm rounded-full" />
+      <div 
+        className="w-6 h-6 rounded-full shadow-inner relative border border-black/5"
+        style={{ 
+          backgroundColor: color,
+          backgroundImage: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent)' 
+        }}
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-black/10" />
       </div>
     </div>
   )
