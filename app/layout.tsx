@@ -88,7 +88,7 @@ export default function RootLayout({
                   <span className="text-[10px] font-black uppercase tracking-[0.4em] text-pink-400 mb-4 block">Connect</span>
                   <div className="flex gap-4">
                     <a href="https://www.instagram.com/paperheartsstudentled/" className="p-3 bg-white/5 hover:bg-pink-400 hover:text-[#3a223a] transition-all rounded-full"><Instagram size={20} /></a>
-                    <a href="linkedin.com/company/paperhearts-inc" className="p-3 bg-white/5 hover:bg-pink-400 hover:text-[#3a223a] transition-all rounded-full"><Linkedin size={20} /></a>
+                    <a href="https://linkedin.com/company/paperhearts-inc" className="p-3 bg-white/5 hover:bg-pink-400 hover:text-[#3a223a] transition-all rounded-full"><Linkedin size={20} /></a>
                     <a href="mailto:paperhearts.studentled@gmail.com" className="p-3 bg-white/5 hover:bg-pink-400 hover:text-[#3a223a] transition-all rounded-full"><Mail size={20} /></a>
                   </div>
                 </div>
