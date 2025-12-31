@@ -176,7 +176,7 @@ function LogoScrollItems() {
   // Add your image paths here when you get them
   const logos = [
     { src: "/sponsors/logo1.png", alt: "Partner 1" },
-    { src: "/sponsors/logo1.png", alt: "Partner 2" },
+    { src: "/sponsors/logo2.png", alt: "Partner 2" },
     { src: "/sponsors/logo1.png", alt: "Partner 3" },
     { src: "/sponsors/logo1.png", alt: "Partner 4" },
     { src: "/sponsors/logo1.png", alt: "Partner 5" },
