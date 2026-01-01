@@ -63,7 +63,7 @@ export default function About() {
           <div className="w-full md:w-1/2 relative group">
             <Pin color="#ec4899" className="top-2 left-1/2 -translate-x-1/2 z-20" />
             <div className="bg-white p-3 shadow-xl -rotate-2 group-hover:rotate-0 transition-transform duration-500">
-               <img src="/elderly-help.jpeg" alt="Elderly Love" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all" />
+               <img src="about/elderly-help.jpeg" alt="Elderly Love" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all" />
             </div>
           </div>
           
@@ -84,7 +84,7 @@ export default function About() {
           <div className="w-full md:w-1/2 relative group">
             <Pin color="#a855f7" className="top-2 left-1/2 -translate-x-1/2 z-20" />
             <div className="bg-white p-3 shadow-xl rotate-2 group-hover:rotate-0 transition-transform duration-500">
-               <img src="/path/to/foster-child-image.jpg" alt="Foster Welfare" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all" />
+               <img src="about/foster-child-image.jpg" alt="Foster Welfare" className="w-full h-auto grayscale group-hover:grayscale-0 transition-all" />
             </div>
           </div>
 
@@ -106,7 +106,7 @@ export default function About() {
             <Pin color="#f472b6" className="top-2 left-1/2 -translate-x-1/2 z-20" />
             <div className="bg-[#fdfaff] p-8 shadow-2xl -rotate-1">
 
-               <img src="meeting.jpeg" alt="Monthly Meetups" className="mt-6 rounded-sm w-full h-auto" />
+               <img src="about/meeting.jpeg" alt="Monthly Meetups" className="mt-6 rounded-sm w-full h-auto" />
             </div>
           </div>
           

@@ -29,7 +29,7 @@ export interface BlogArticle {
       author: "PaperHearts Team",
       date: "2025-09-01",
       category: "Volunteer Stories",
-      imageUrl: "/elderly-help.jpeg",
+      imageUrl: "blog/elderly-help.jpeg",
       readTime: 3,
     },
     {

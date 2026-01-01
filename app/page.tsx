@@ -14,9 +14,8 @@ export default function Home() {
   }
 
   const carouselImages = [
-    "/elderly-help.jpeg",
-    "/painting-seniors.jpeg",
-    "/full-team.jpeg",
+    "carousel/elderly-help.jpeg",
+    "carousel/painting-seniors.jpeg",
   ];
 
   return (
