@@ -35,7 +35,7 @@ export default function Team() {
             <TeamCard name="SaiAnish Alpuri" role="PR Officer" img="/headshot/anish.png" isSmall pinColor="#a855f7" rotation="2deg" />
             <TeamCard name="Akshaj N." role="Partnership" img="/headshot/akshaj.jpeg" isSmall pinColor="#ec4899" rotation="-3deg" />
             <TeamCard name="DhanaSugani" role="Social Media" img="/headshot/dhana.png" isSmall pinColor="#a855f7" rotation="2deg" />
-            <TeamCard name="Sahasyaa S." role="Marketing" img="/headshot/saha.png" isSmall pinColor="#ec4899" rotation="-1deg" />
+            <TeamCard name="Sahashyaa S." role="Marketing" img="/headshot/saha.png" isSmall pinColor="#ec4899" rotation="-1deg" />
             <TeamCard name="Asha Annae" role="Outreach" img="/headshot/asha.png" isSmall pinColor="#a855f7" rotation="1deg" />
             <TeamCard name="Thrina M." role="Events" img="/headshot/thrina.png" isSmall pinColor="#ec4899" rotation="-2deg" />
         </div>
